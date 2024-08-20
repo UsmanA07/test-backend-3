@@ -17,6 +17,9 @@ class Course(models.Model):
         auto_now_add=False,
         verbose_name='Дата и время начала курса'
     )
+    price = models.IntegerField(
+        verbose_name='Стоимость',
+    )
 
     # TODO
 
@@ -39,6 +42,11 @@ class Lesson(models.Model):
     link = models.URLField(
         max_length=250,
         verbose_name='Ссылка',
+    )
+    course = models.OneToOneField(
+        Course,
+        verbose_name='Продукт',
+        on_delete=models.CASCADE
     )
 
     # TODO
